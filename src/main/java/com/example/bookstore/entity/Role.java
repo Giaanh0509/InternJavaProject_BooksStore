@@ -2,6 +2,8 @@ package com.example.bookstore.entity;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "roles")
 public class Role {
@@ -13,15 +15,15 @@ public class Role {
     @Column(name = "name")
     private String name;
 
-    @OneToOne(mappedBy = "role")
-    private User user;
+    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL)
+    private Set<User> users;
 
     public Role() {
     }
 
-    public Role(String name, User user) {
+    public Role(String name, Set<User> users) {
         this.name = name;
-        this.user = user;
+        this.users = users;
     }
 
     public int getId() {
@@ -40,11 +42,11 @@ public class Role {
         this.name = name;
     }
 
-    public User getUser() {
-        return user;
+    public Set<User> getUsers() {
+        return users;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUsers(Set<User> users) {
+        this.users = users;
     }
 }
