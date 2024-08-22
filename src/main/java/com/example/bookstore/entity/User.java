@@ -34,6 +34,13 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private Set<Order> orders;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private Set<Review> reviews ;
+
+    @OneToOne(mappedBy = "user")
+    private Cart cart;
+
+
     public User() {
     }
 
