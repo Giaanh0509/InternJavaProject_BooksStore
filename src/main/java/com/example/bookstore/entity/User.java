@@ -24,4 +24,8 @@ public class User {
 
     @Column(name = "phone_number")
     private String phoneNumber;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "role_id", referencedColumnName = "id")
+    private Role role;
 }
