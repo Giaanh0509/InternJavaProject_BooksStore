@@ -30,10 +30,6 @@ public class Book {
     @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
     private Set<OrderDetail> orderDetails;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "book_id", referencedColumnName = "id")
-    private Book book;
-
     @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
     private Set<CartDetail> cartDetails;
 
