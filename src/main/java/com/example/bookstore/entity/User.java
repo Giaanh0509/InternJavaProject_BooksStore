@@ -31,10 +31,10 @@ public class User {
     @JoinColumn(name = "role_id", referencedColumnName = "id")
     private Role role;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user")
     private Set<Order> orders;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user")
     private Set<Review> reviews ;
 
     @OneToOne(mappedBy = "user")
