@@ -34,7 +34,7 @@ public class Book {
     private Set<CartDetail> cartDetails;
 
     @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
-    private Set<Review> reviews ;
+    private Set<Review> reviews;
 
     public Book() {
     }
