@@ -15,12 +15,20 @@ public class SecurityConfiguration {
         return new BCryptPasswordEncoder();
     }
 
+
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.authorizeHttpRequests(
                 configurer -> configurer
                         .requestMatchers("/register/**").permitAll()
                         .anyRequest().authenticated()
+        ).formLogin(
+                form -> form.loginPage("/login/showLoginPage")
+                        .loginProcessingUrl("/authenticateTheUser")
+                        .permitAll()
+        ).logout(
+                logout -> logout.permitAll()
         ).exceptionHandling(
                 configurer -> configurer.accessDeniedPage("/showPage403")
         );

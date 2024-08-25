@@ -20,12 +20,9 @@ public class RegistersUser {
     private String email;
 
     @NotBlank(message = "This is required information")
-    @Email(message = "")
     private String phoneNumber;
 
-
     @NotBlank(message = "This is required information")
-    @Email(message = "")
     private String address;
 
 
