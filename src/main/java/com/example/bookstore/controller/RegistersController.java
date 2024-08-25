@@ -68,8 +68,10 @@ public class RegistersController {
         user.setEmail(registersUser.getEmail());
         user.setPhoneNumber(registersUser.getPhoneNumber());
         user.setAddress(registersUser.getAddress());
-        user.setRole(rolesService.findByName("CUSTOMER"));
+        user.setRole(rolesService.findByName("ROLE_CUSTOMER"));
         usersService.saveUser(user);
+
+        System.out.println(username);
 
         session.setAttribute("user", user);
         return "register/confirmation";
